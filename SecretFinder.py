@@ -131,7 +131,7 @@ _template = '''
           opacity: 0.7;
        }
   </style>
-  <title>LinkFinder Output</title>
+  <title>SecretFinder Output</title>
 </head>
 <body contenteditable="true">
   $$content$$
@@ -155,7 +155,7 @@ def getContext(matches,content,name,rex='.+?'):
         if i not in matches2:
             matches2.append(i)
     for m in matches2:
-        context = re.findall('%s%s%s'%(rex,m,rex),content,re.IGNORECASE)
+        context = re.findall('%s%s%s'%(rex,re.escape(m),rex),content,re.IGNORECASE)
 
         item = {
             'matched'          : m,
